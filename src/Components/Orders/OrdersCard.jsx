@@ -27,10 +27,12 @@ const OrdersCard = ({orderDetails}) => {
           </div>
           <div className="mb-4">
             <h2 className="text-lg font-medium">Order ID {orderDetails.order_id}</h2>
-            <p className="text-gray-500 dark:text-gray-400">Payment status {orderDetails.is_paid ? "Paid" :"Pending"}</p>
+            <p className="my-2 text-purple-800 font-medium  text-sm" >Payment Mode: {orderDetails.payment_method}</p>
+            <p className="my-2 text-amber-800 font-medium text-sm" >Payment status: {orderDetails.is_paid ? "Paid" :"Pending"}</p>
+
           </div>
           <div className="flex justify-between items-center">
-            <span className="text-gray-500 dark:text-gray-400 text-sm">Total: {orderDetails.total_price}</span>
+            <span className="my-2 text-cyan-800 font-semibold text-base">Total: {orderDetails.total_price}</span>
             <Link
               className="inline-flex items-center px-3 py-2 bg-green-700 text-white  hover:bg-green-600 rounded-md text-sm font-medium transition-colors"
               to={`/orderProducts/${orderDetails.id}`}

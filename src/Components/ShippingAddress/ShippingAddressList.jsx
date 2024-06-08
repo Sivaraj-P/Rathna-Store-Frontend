@@ -159,7 +159,8 @@ const SaList = ({ value, onChange }) => {
           >
             Add Address
           </Button>
-          {
+          { loading ?  <CircularProgress />:
+          
             shippingAddress.length>0?
          ( <Paper elevation={3} style={{  padding: 10,backgroundColor:"white" ,borderRadius:20}}>
             {loading ? (
@@ -217,7 +218,7 @@ const SaList = ({ value, onChange }) => {
 
 
           }
-
+        
         </div>
       </div>
     </>

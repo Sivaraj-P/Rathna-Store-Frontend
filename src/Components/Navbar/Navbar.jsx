@@ -8,7 +8,7 @@ import Box from '@mui/material/Box';
 import Fab from '@mui/material/Fab';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Fade from '@mui/material/Fade';
-import logo_black from '../../assets/logo_black.png';
+import logo_black from '../../assets/rathna_store.png';
 import { Button, Container, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Tooltip, useMediaQuery } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
