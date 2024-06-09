@@ -65,6 +65,9 @@ const ReActivateAccount = () => {
       const response = await axios.post(BASE_URL + "reactivate", user);
       setStatus(true)
       setreActivateError(response.data.message)
+      setTimeout(() => {
+        navigate('/login')
+    }, 3000);
     //   navigate(from);
       // localStorage.setItem("token", response);
       // navigate("/cart");

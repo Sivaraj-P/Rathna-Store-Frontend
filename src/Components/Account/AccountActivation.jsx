@@ -3,7 +3,7 @@ import axios from "axios";
 import { BASE_URL } from "../../utils/utils";
 import { useEffect, useState,useContext } from "react";
 import { useParams } from "react-router-dom";
-import success from '../../assets/gifs/success.gif'
+import success from '../../assets/icons/check.png'
 import failed from '../../assets/icons/failed.png'
 
 // import { groceryContext } from "../Layout/Layout";
@@ -42,14 +42,17 @@ const AccountActivation = () => {
 
   return (
 <>
-{loading ? (<CircularProgress/>):(
+
 <Container>
 <div className="flex flex-col items-center h-screen w-full justify-center">
-<img src={status?success:failed} height={status?200:100} width={status?200:100}/>
-<p className={status?"text-green-600":"text-red-600 font-semibold m-5 text-center"}>{message}</p>
+{loading ? <CircularProgress/>:(
+  <>
+  <img src={status?success:failed} height={status?150:100} width={status?150:100}/>
+  <p className={status?"text-green-600":"text-red-600 font-semibold m-5 text-center"}>{message}</p>
+  </>
+)}
 
 </div></Container>
-)}
 </>
   );
 };

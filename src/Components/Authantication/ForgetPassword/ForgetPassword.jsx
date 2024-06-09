@@ -50,7 +50,7 @@ const ForgetPassword = () => {
     // function to handle change events in form
     const handleChange = (e) => {
         const { name, value } = e.target;
-        console.log(name);
+        // console.log(name);
         setUser((prevData) => ({
             ...prevData,
             [name]: value,
@@ -69,7 +69,7 @@ const ForgetPassword = () => {
             setStatus(false)
             setLoader(true)
             if (!verifyPassword) {
-                console.log(BASE_URL + "login");
+                // console.log(BASE_URL + "login");
                 const response = await axios.post(BASE_URL + "generate-otp", {email_id:user.email_id});
                 setVerifyPassword(true)
             }
@@ -77,6 +77,9 @@ const ForgetPassword = () => {
                 const response = await axios.post(BASE_URL + "forget-password", user);
                 setStatus(true)
                 setLogInError(response.data.message)
+                setTimeout(() => {
+                    navigate('/login')
+                }, 3000);
             }
             //   navigate(from);
 

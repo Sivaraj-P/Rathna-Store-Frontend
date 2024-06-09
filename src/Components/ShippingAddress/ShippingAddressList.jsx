@@ -62,7 +62,6 @@ const SaList = ({ value, onChange }) => {
 
   const deleteShippingAddressData = async (id) => {
     try {
-      console.log("delete", value.id)
       const headers = {
         headers: {
           'Authorization': `Token ${loginToken.token}`,
@@ -86,7 +85,6 @@ const SaList = ({ value, onChange }) => {
     // event.stopPropagation();
   };
   useEffect(() => {
-    console.log()
     getShippingAddressData();
   }, [addShippingAddress]);
 
@@ -101,7 +99,6 @@ const SaList = ({ value, onChange }) => {
     setOpenDialog(false);
     navigate("/");
   };
-  { console.log("value----", value.id) }
 
   return (
     <>
@@ -132,7 +129,6 @@ const SaList = ({ value, onChange }) => {
               <Button onClick={handleClose} color="info">Close</Button>
 
               <Button onClick={() => {
-                console.log("buttuon click", value.id)
                 deleteShippingAddressData(value.id)
               }} color="error">Delete</Button>
             </Typography>
@@ -176,7 +172,6 @@ const SaList = ({ value, onChange }) => {
                     <div className="p-1 m-2 w-full" onClick={()=>{
                       handleChange(data)
                     }}>
-                      {console.log(value.id)}
                       <Box sx={{ display: "flex", alignItems: "center",justifyContent:"flex-start", width: "100%" }}>
 
                         <Radio

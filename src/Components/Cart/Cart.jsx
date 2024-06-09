@@ -36,7 +36,6 @@ const getProductData=async (productId)=>{
     const response = await axios.get(BASE_URL + `product/${productId}`);
     return response.data
   }catch(e){
-    console.log("error",e)
     return null
   }
 }
@@ -47,20 +46,16 @@ const syncData=async ()=>{
     for (let i=0; i<cartItems.length;i++){
       try {
         setLoader(true)
-        console.log("Inside sync Data")
         // Fetch new price for each product
         const productDataUpdate = await getProductData(cartItems[i].id);
-        console.log("new price",productDataUpdate)
         // If new price is fetched successfully, update the price in cart item
         if (productDataUpdate !== null) {
-          console.log("Inside new price")
           // Clone the cart item and update its price
           const updatedCartItem = { ...cartItems[i], price: productDataUpdate.price,discount_percent:productDataUpdate.discount_percent,mrp:productDataUpdate.mrp };
           // Push updated cart item to the array
           updatedCartItems.push(updatedCartItem);
         } 
         setCartItems(updatedCartItems)
-        console.log("updated cart items",updatedCartItems);
 
       } catch (error) {
         console.error("Error updating cart item:", error);
@@ -70,7 +65,7 @@ const syncData=async ()=>{
 
         // handlelocalStorage("set", "cartItems", updatedCartItems);
         setLoader(false)
-        console.log("set loader false")
+        // console.log("set loader false")
       }
 }
 }
@@ -78,7 +73,7 @@ const syncData=async ()=>{
 
   useEffect(()=>{
 syncData()
-console.log(cartItems)
+// console.log(cartItems)
   },[])
 
   return (
@@ -100,7 +95,7 @@ console.log(cartItems)
                 {!isProceedToCheckout ? <CartItems /> : <SaList value={selectedShippingAddress} onChange={handleShippingAddress} />}
               </div>
               <OrderSummary shippingAddress={selectedShippingAddress} />
-              {console.log(selectedShippingAddress,"selected shipping adderess")}
+              {/* {console.log(selectedShippingAddress,"selected shipping adderess")} */}
             </section>
             
           </Container>

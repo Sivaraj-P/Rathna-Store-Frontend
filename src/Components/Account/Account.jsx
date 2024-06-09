@@ -3,7 +3,7 @@ import axios from "axios";
 import { BASE_URL } from "../../utils/utils";
 import { useEffect, useState,useContext } from "react";
 import { groceryContext } from "../Layout/Layout";
-
+import {CircularProgress} from "@mui/material";
 const Account = () => {
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -66,7 +66,9 @@ const Account = () => {
 <div className="flex items-center h-screen w-full justify-center">
 
 <div className="max-w-xs">
-    <div className="bg-white shadow-xl rounded-lg py-3">
+    {
+      loading ? <CircularProgress/>:(
+        <div className="bg-white shadow-xl rounded-lg py-3">
         <div className="photo-wrapper p-2 flex justify-center">
         <Avatar {...stringAvatar(`${user.first_name} ${user.last_name}`)} />
 
@@ -89,6 +91,8 @@ const Account = () => {
 
         </div>
     </div>
+      )
+    }
 </div>
 
 </div></Container>

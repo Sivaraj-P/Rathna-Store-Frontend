@@ -65,7 +65,7 @@ const verifyPayment=async(razorpayResponse)=>{
 
   }
   catch(e){
-console.log(e.response.data.detail)
+// console.log(e.response.data.detail)
 // setSubmitErrors(e.response.data.detail)
 setMessage('Payment Failed')
   }
@@ -84,7 +84,6 @@ const submitOrders=async()=>{
   }
   try{
     const response=await axios.post(BASE_URL+'order-items',orderData(),headers)
-    console.log("order submitted")
     if (paymentMode=="COD"){
       setOpenDialog(true)
       setMessage('Order Placed successfully')
@@ -101,12 +100,11 @@ const submitOrders=async()=>{
         handler: function (response) {
           // we will handle success by calling handlePayment method and
           // will pass the response that we've got from razorpay
-          console.log("Response---------------",response)
-          console.log({
-            razorpay_payment_id: response.razorpay_payment_id,
-            razorpay_order_id: response.razorpay_order_id,
-            razorpay_signature: response.razorpay_signature,
-          });
+          // console.log({
+          //   razorpay_payment_id: response.razorpay_payment_id,
+          //   razorpay_order_id: response.razorpay_order_id,
+          //   razorpay_signature: response.razorpay_signature,
+          // });
           verifyPayment(response);
         },
         prefill: {
@@ -124,7 +122,7 @@ const submitOrders=async()=>{
   
       var rzp1 = new window.Razorpay(options);
       rzp1.on("payment.failed", function (response) {
-        console.log("Failure Response",response)
+        // console.log("Failure Response",response)
         alert(response.error.code);
         alert(response.error.description);
         alert(response.error.source);
@@ -186,7 +184,7 @@ function isEmpty(obj) {
 
         <FormControl fullWidth color="success">
             <InputLabel id="payment-mode-label" color="success">Payment Mode</InputLabel>
-            {console.log("Shipping Address",shippingAddress)}
+            {/* {console.log("Shipping Address",shippingAddress)} */}
             <Select 
               labelId="payment-mode-label"
               id="payment-mode"

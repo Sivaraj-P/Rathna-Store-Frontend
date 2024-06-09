@@ -33,7 +33,6 @@ const AddShippingAddress = ({ open, handleOpen,update,shippingData,getShippingAd
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        console.log(name,value);
         setShippingAddress((prevData) => ({
             ...prevData,
             [name]: value,
@@ -44,7 +43,6 @@ useEffect(()=>{
 if (update){
     setShippingAddress(shippingData)
 
-    console.log("shipppingg aadddres",shippingAddress)
 
 }
 },[shippingData])
@@ -64,7 +62,7 @@ if (update){
           }
           handleOpen(false)
         } catch (error) {
-            console.log(error)
+            // console.log(error)
           setaddError("Failed to add or update address");
         } finally {
           setLoader(false)
@@ -117,7 +115,7 @@ if (update){
                             />
                             < div className="flex justify-between items-start gap-3">
                                 {/* Last Name */}
-                                {console.log("form data",shippingAddress.state)}
+                                {/* {console.log("form data",shippingAddress.state)} */}
 
                                 <TextField
                                     {...register("city", {

@@ -47,7 +47,7 @@ const Login = () => {
   // function to handle change events in form
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(name);
+    // console.log(name);
     setUser((prevData) => ({
       ...prevData,
       [name]: value,
@@ -63,12 +63,10 @@ const Login = () => {
 
   // function to login user with api
   const loginUser = async () => {
-    console.log("login");
+    // console.log("login");
     try {
       setLoader(true)
-      console.log(BASE_URL + "login");
       const response = await axios.post(BASE_URL + "login", user);
-      console.log(response.data);
       localStorage.setItem("userLoggedIn", JSON.stringify(true));
       setIsUserLoggedIn(true);
       setLoginToken(response.data)
@@ -204,6 +202,12 @@ const Login = () => {
                     <p>
                       Dont have an account?{" "}
                       <a className="text-green-600" href="/register">
+                        click here
+                      </a>
+                    </p>
+                    <p>
+                      To re-generate verification mail?{" "}
+                      <a className="text-green-600" href="/email-verification">
                         click here
                       </a>
                     </p>

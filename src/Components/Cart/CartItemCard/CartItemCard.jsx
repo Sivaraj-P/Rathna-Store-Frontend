@@ -87,7 +87,7 @@ const CartItemCard = ({ item }) => {
 // Quantity Controller
 const QuantityController = ({ item }) => {
   const { unit, quantity, price, id } = item;
-  console.log(price);
+  // console.log(price);
   const [productQuantity, setProductQuantity] = useState(
     quantity 
   );

@@ -47,7 +47,7 @@ const Register = () => {
   // function to handle change events in form
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(name);
+    // console.log(name);
     setUser((prevData) => ({
       ...prevData,
       [name]: value,

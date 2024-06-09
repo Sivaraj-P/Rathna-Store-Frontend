@@ -1,4 +1,4 @@
-import { Container, Fade } from "@mui/material";
+import { CircularProgress, Container, Fade } from "@mui/material";
 import CategoryCard from "../CategoryCard/CategoryCard";
 import axios from "axios";
 import { BASE_URL } from "../../utils/utils";
@@ -35,7 +35,11 @@ const AllCategories = () => {
           </h1>
           {/* All Category Cards */}
           {loading ? (
-            <img src={loader} alt="Loader" className="mx-auto w-full" />
+            <div className="w-full h-full grid place-items-center">
+
+<CircularProgress />
+            </div>
+           
           ) : (
             <section className="grid xl:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-5">
               {category.map((data) => (
